@@ -14,4 +14,4 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Envoyer les fichiers
-        run: rsync -avz --delete --exclude '.git' --exclude '.github' -e "ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=accept-new" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:www/
+        run: rsync -rlvz --delete --exclude '.git' --exclude '.github' -e "ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=accept-new" ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:www/
