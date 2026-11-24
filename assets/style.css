@@ -454,3 +454,14 @@ body.blackout .progress i{background:var(--alerte)}
 
 .hero-logo{will-change:transform}
 .hero .city{image-rendering:auto}
+
+/* ---------- Questions / réponses (GEO) ---------- */
+.hero h1 .tag{display:block;margin-top:.9rem;font-weight:700;line-height:1.4;text-transform:uppercase}
+section h2.scramble{font-size:clamp(2rem,4.2vw,3.4rem);line-height:1;max-width:30ch}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-top:1rem}
+.qa{position:relative;padding:1.5rem 1.6rem 1.4rem 1.6rem;background:rgba(18,21,18,.55);border:1px solid rgba(169,176,166,.14);border-left:3px solid var(--rouille-vif)}
+.qa h3{font-size:1.4rem;line-height:1.1;margin-bottom:.7rem;text-transform:none;letter-spacing:.01em}
+.qa h3::before{content:"Q. ";color:var(--rouille-vif)}
+.qa .answer p{font-size:1rem}
+@media (max-width:820px){.faq{grid-template-columns:minmax(0,1fr)}}
+.article h2{text-transform:none;letter-spacing:.01em}
