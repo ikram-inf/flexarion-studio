@@ -5,7 +5,6 @@ Dans tous les fichiers `.html`, plus `sitemap.xml` et `robots.txt`, faites un «
 
 | Texte actuel | Remplacer par |
 |---|---|
-| `https://VOTRE-PSEUDO.github.io/flexarion/` | l'URL réelle de votre site (avec le `/` final) |
 | `contact@flexarion-studio.fr` | votre vrai e-mail de contact |
 | `presse@flexarion-studio.fr` | votre e-mail presse (ou le même) |
 
@@ -14,11 +13,12 @@ Dans tous les fichiers `.html`, plus `sitemap.xml` et `robots.txt`, faites un «
 - les liens vers les réseaux sociaux (pied de page et `contact.html`), qui pointent pour l'instant vers les pages d'accueil d'Instagram, Discord, etc. ;
 - la date des devlogs, si vous les publiez à des jours différents (balise `<time>` et `datePublished`).
 
-## 2. Publier sur GitHub Pages
-1. Créez un dépôt public nommé `flexarion` sur GitHub.
-2. Envoyez **le contenu** de ce dossier à la racine du dépôt (bouton *Add file → Upload files*).
-3. Allez dans *Settings → Pages* : Source = *Deploy from a branch*, Branch = `main`, dossier `/ (root)`.
-4. Le site sera en ligne après une ou deux minutes, à l'adresse `https://VOTRE-PSEUDO.github.io/flexarion/`.
+## 2. Publier sur alwaysdata
+Le site est en ligne à l'adresse **https://flexarion-studio.alwaysdata.net/**.
+- **Par SFTP** (FileZilla) : connectez-vous avec les identifiants SSH/SFTP d'alwaysdata, ouvrez le dossier du site (`www/` par défaut), supprimez l'ancien contenu, puis envoyez **tout** le contenu de ce dossier, y compris le fichier caché `.htaccess`.
+- **Par Git** : poussez sur GitHub (`git add -A`, `git commit`, `git push`), puis connectez-vous en SSH à alwaysdata, allez dans le dossier du site et faites `git pull`.
+
+Le fichier `.htaccess` gère la page d'erreur 404, la redirection vers HTTPS, la compression et le cache.
 
 ## 3. Accélérer l'indexation par Google
 1. Ouvrez [Google Search Console](https://search.google.com/search-console) et ajoutez la propriété « Préfixe d'URL » avec l'URL du site.
@@ -39,10 +39,10 @@ Dupliquez un fichier de `devlog/`, changez le titre, la description, la date et 
 - `sitemap.xml`, `robots.txt` et des URL canoniques.
 - Les balises Open Graph pour le partage sur les réseaux (`og-flexarion.jpg`).
 - Des images en WebP, avec chargement différé (`lazy`) et un texte alternatif.
-- Un maillage interne en silo : Accueil → Nomade / Studio → Devlog → articles.
+- Un maillage interne en silo : Accueil → Deviation / Studio → Devlog → articles.
 - Un site responsive et accessible : lien d'évitement, navigation au clavier, respect du réglage « réduire les animations ».
 
-## Le mini-jeu « Opération Nomade » (décor en haut des pages)
+## Le mini-jeu « Opération Deviation » (décor en haut des pages)
 - Cliquez dans le décor pour tirer. Une vague est franchie tous les 5 ou 6 drones abattus, et la difficulté augmente à chaque vague : drones plus rapides, blindés plus résistants (3, puis 4, 5, 6 tirs…), snipers qui visent plus vite.
 - Les ennemis :
   - **éclaireur** : 1 tir ;
@@ -61,7 +61,7 @@ Dupliquez un fichier de `devlog/`, changez le titre, la description, la date et 
 Les solutions des secrets (à garder pour la démo à l'oral) :
 1. **Code de la Résistance** : le code Konami (↑ ↑ ↓ ↓ ← → ← → B A) active le tir automatique (maintenir le clic).
 2. **Pacifiste ?** : tirez 7 fois sur le logo.
-3. **Vision nocturne** : tapez « nomade » au clavier.
+3. **Vision nocturne** : tapez « deviation » au clavier.
 4. **Quelle cruauté** : tirez sur un pigeon.
 5. **Fin de transmission** : terminez la vague 15 (ou faites tomber l'espoir à 0).
 

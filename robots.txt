@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://VOTRE-PSEUDO.github.io/flexarion/sitemap.xml
+Sitemap: https://flexarion-studio.alwaysdata.net/sitemap.xml

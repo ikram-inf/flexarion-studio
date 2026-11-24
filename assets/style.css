@@ -309,7 +309,7 @@ html.rm .reveal{opacity:1;transform:none}html.rm .framed{clip-path:none}
 .cursor.aim::after{background:var(--alerte);box-shadow:-14px 0 0 -1px var(--alerte),14px 0 0 -1px var(--alerte),0 -14px 0 -1px var(--alerte),0 14px 0 -1px var(--alerte)}
 @media (max-width:700px){.hud .br{display:flex;bottom:6px;right:14px}.hud .hud-sound{display:none}.hud .tr{display:none}}
 
-/* ---------- Opération Nomade : HUD du jeu ---------- */
+/* ---------- Opération Deviation : HUD du jeu ---------- */
 .hero.armed{user-select:none;-webkit-user-select:none;touch-action:manipulation}
 .hud .br{position:absolute;bottom:10px;right:40px;display:flex;flex-direction:column;align-items:flex-end;gap:.45rem;pointer-events:none}
 .hud-row{display:flex;gap:1.2rem}

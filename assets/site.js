@@ -40,7 +40,7 @@ const STORE = (() => {
 })();
 
 /* ---------- Bandeau rebelle (après la chute de la Vigie, sur tout le site) ---------- */
-const REBEL = ["L'espoir ne s'éteint pas", 'La Vigie est tombée', 'Ils ne peuvent pas tout voir', 'Secteur 13 libéré', 'Résistez', 'Nomade · un jeu Flexarion'];
+const REBEL = ["L'espoir ne s'éteint pas", 'La Vigie est tombée', 'Ils ne peuvent pas tout voir', 'Secteur 13 libéré', 'Résistez', 'Deviation · un jeu Flexarion'];
 function rebelTicker() {
   $$('.ticker').forEach(t => {
     t.classList.add('rebel');

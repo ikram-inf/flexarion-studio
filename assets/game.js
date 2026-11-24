@@ -1,4 +1,4 @@
-/* Flexarion — « Opération Nomade » : le mini-jeu du décor, ses sons et sa musique.
+/* Flexarion — « Opération Deviation » : le mini-jeu du décor, ses sons et sa musique.
    Chargé à la demande par site.js, uniquement si le jeu est activé. */
 (() => {
 if (!window.FLX) return;
@@ -260,7 +260,7 @@ const MUSIC = (() => {
   return { duck: () => to(VOL * .3), restore: () => to(VOL), fade: () => to(0, 2200) };
 })();
 
-/* ---------- Opération Nomade : le mini-jeu du décor ---------- */
+/* ---------- Opération Deviation : le mini-jeu du décor ---------- */
 const OBJECTIVES = [
   { id: 'sniper', name: "Tireur d'élite", desc: "Toucher 5 cibles d'affilée sans rater." },
   { id: 'courier', name: 'Intercepter le courrier', desc: 'Abattre un drone courrier doré.' },
@@ -273,7 +273,7 @@ const OBJECTIVES = [
 const SECRETS = [
   { id: 'konami', name: 'Code de la Résistance', hint: 'Un vieux code de joueur…', desc: 'Tir automatique : maintenez le clic.' },
   { id: 'pacifist', name: 'Pacifiste ?', hint: 'La paix a ses limites…', desc: 'La paix ne se brise pas. Elle se reconstruit.' },
-  { id: 'nightvision', name: 'Vision nocturne', hint: 'Dites son nom…', desc: 'Tapez « nomade » pour l’activer ou la couper.' },
+  { id: 'nightvision', name: 'Vision nocturne', hint: 'Dites son nom…', desc: 'Tapez « deviation » pour l’activer ou la couper.' },
   { id: 'cruelty', name: 'Quelle cruauté', hint: 'Certains innocents volent encore…', desc: 'Vous avez tiré sur un pigeon. L’espoir ne vous le pardonnera pas.' },
   { id: 'ending', name: 'Fin de transmission', hint: 'Allez trop loin…', desc: 'Il n’y a aucun espoir. Ou peut-être que si.' },
 ];
@@ -319,7 +319,7 @@ function Game(view, hero) {
     STORE.set('o_' + id, 1); sound('chime');
     const o = OBJECTIVES.find(o => o.id === id);
     toast('Objectif accompli', o.name, 'gold'); renderPanel();
-    if (OBJECTIVES.every(o => STORE.get('o_' + o.id))) setTimeout(() => toast('Opération Nomade terminée', 'Tous les objectifs sont accomplis. Respect.', 'gold'), 600);
+    if (OBJECTIVES.every(o => STORE.get('o_' + o.id))) setTimeout(() => toast('Opération Deviation terminée', 'Tous les objectifs sont accomplis. Respect.', 'gold'), 600);
   }
   function secret(id) {
     if (!STORE.get('s_' + id)) { STORE.set('s_' + id, 1); sound('chime'); }
@@ -330,7 +330,7 @@ function Game(view, hero) {
     if (!hud.panel) return;
     const oDone = OBJECTIVES.filter(o => STORE.get('o_' + o.id)).length, sDone = SECRETS.filter(s => STORE.get('s_' + s.id)).length;
     hud.panel.innerHTML = `
-      <div class="m-head"><h3>Opération Nomade</h3><button class="m-close" type="button" aria-label="Fermer le panneau Mission">✕</button></div>
+      <div class="m-head"><h3>Opération Deviation</h3><button class="m-close" type="button" aria-label="Fermer le panneau Mission">✕</button></div>
       <dl class="m-stats">
         <div><dt>Vague</dt><dd>${wave}</dd></div>
         <div><dt>Espoir</dt><dd>${espoir}%</dd></div>
@@ -733,7 +733,7 @@ function Game(view, hero) {
       <p class="end-sub">${sub}</p>
       <p class="end-stats">Vague ${wave} · Score ${String(score).padStart(6, '0')} · ${STORE.get('kills', 0)} drones abattus</p>
       <button class="btn end-restart" type="button">Recommencer la mission</button>
-      <p class="end-note">Dans Nomade, la résistance ne se gagne jamais seul.</p></div>`;
+      <p class="end-note">Dans Deviation, la résistance ne se gagne jamais seul.</p></div>`;
     el.hidden = false; hero.classList.add('end-shown'); requestAnimationFrame(() => el.classList.add('show'));
     $('.end-restart', el).addEventListener('click', () => {
       el.classList.remove('show'); setTimeout(() => { el.hidden = true; }, 600);
@@ -1106,8 +1106,8 @@ function Game(view, hero) {
       bigBanner('Mode Résistance', 'Tir automatique : maintenez le clic dans le décor', '#c27a3a', 3);
     }
     if (k.length === 1) {
-      typed = (typed + k).slice(-6);
-      if (typed === 'nomade') {
+      typed = (typed + k).slice(-9);
+      if (typed === 'deviation') {
         typed = ''; const on = view.canvas.classList.toggle('nv');
         if (on) secret('nightvision'); else toast('Vision nocturne coupée');
       }
@@ -1115,7 +1115,7 @@ function Game(view, hero) {
   });
 
   updateHud();
-  if (!STORE.get('seenGame')) setTimeout(() => toast('Opération Nomade', 'Cliquez dans le décor pour abattre les drones. Ouvrez « Mission » pour vos objectifs.'), 4200);
+  if (!STORE.get('seenGame')) setTimeout(() => toast('Opération Deviation', 'Cliquez dans le décor pour abattre les drones. Ouvrez « Mission » pour vos objectifs.'), 4200);
   STORE.set('seenGame', 1);
 
   return {
