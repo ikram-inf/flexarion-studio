@@ -1,8 +1,1 @@
 ErrorDocument 404 /404.html
-
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^flexarion-studio\.alwaysdata\.net$ [NC]
-RewriteRule ^ https://flexarion-studio.alwaysdata.net%{REQUEST_URI} [R=301,L]
-</IfModule>

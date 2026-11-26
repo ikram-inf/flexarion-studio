@@ -18,7 +18,7 @@ Le site est en ligne à l'adresse **https://flexarion-studio.alwaysdata.net/**.
 - **Par SFTP** (FileZilla) : connectez-vous avec les identifiants SSH/SFTP d'alwaysdata, ouvrez le dossier du site (`www/` par défaut), supprimez l'ancien contenu, puis envoyez **tout** le contenu de ce dossier, y compris le fichier caché `.htaccess`.
 - **Par Git** : poussez sur GitHub (`git add -A`, `git commit`, `git push`), puis connectez-vous en SSH à alwaysdata, allez dans le dossier du site et faites `git pull`.
 
-Le fichier `.htaccess` gère la page d'erreur 404, la redirection vers HTTPS, la compression et le cache.
+Le fichier `.htaccess` configure la page d'erreur 404. Pour forcer HTTPS, activez **Force HTTPS** dans la section SSL du site dans l'interface alwaysdata : la redirection est alors faite par leur proxy. Ne la dupliquez pas dans `.htaccess`, car Apache peut voir la requête comme HTTP même lorsque le visiteur est déjà en HTTPS et créer une boucle de redirection.
 
 ## 3. Accélérer l'indexation par Google
 1. Ouvrez [Google Search Console](https://search.google.com/search-console) et ajoutez la propriété « Préfixe d'URL » avec l'URL du site.
