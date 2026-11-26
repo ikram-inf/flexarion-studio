@@ -26,10 +26,21 @@ Le fichier `.htaccess` gère la page d'erreur 404, la redirection vers HTTPS, la
 3. Dans *Sitemaps*, soumettez `sitemap.xml`.
 4. Dans *Inspection de l'URL*, demandez l'indexation de chaque page.
 
-## 4. Ajouter un devlog
+## 4. Signaler les changements à Bing (IndexNow)
+La clé IndexNow est publiée à la racine dans `8ff70e23a16ebed88ef5b2cc7f221b91.txt`. Après avoir déployé les changements, signalez uniquement les URL modifiées :
+
+```sh
+curl -X POST 'https://api.indexnow.org/indexnow' \
+  -H 'Content-Type: application/json; charset=utf-8' \
+  -d '{"host":"flexarion-studio.alwaysdata.net","key":"8ff70e23a16ebed88ef5b2cc7f221b91","keyLocation":"https://flexarion-studio.alwaysdata.net/8ff70e23a16ebed88ef5b2cc7f221b91.txt","urlList":["https://flexarion-studio.alwaysdata.net/","https://flexarion-studio.alwaysdata.net/studio.html","https://flexarion-studio.alwaysdata.net/deviation.html","https://flexarion-studio.alwaysdata.net/devlog/","https://flexarion-studio.alwaysdata.net/contact.html","https://flexarion-studio.alwaysdata.net/devlog/naissance-de-deviation.html","https://flexarion-studio.alwaysdata.net/devlog/identite-visuelle-paix-brisee.html"]}'
+```
+
+Remplacez l'URL d'exemple par les URL réellement mises à jour et envoyez la notification après leur publication en production.
+
+## 5. Ajouter un devlog
 Dupliquez un fichier de `devlog/`, changez le titre, la description, la date et le contenu, puis ajoutez-le :
 - à la liste de `devlog/index.html` ;
-- à `sitemap.xml` ;
+- à `sitemap.xml` en utilisant sa date réelle de modification dans `<lastmod>` ;
 - au lien « Devlog suivant » de l'article précédent (maillage interne).
 
 ## Ce qui est déjà en place pour le SEO
